@@ -20,16 +20,15 @@ def check_dir(dir, new_dir):
         
 def convert_image(dir, new_dir):
     for filename in os.listdir(dir):
-        if filename.endswith('.jpg'):
-            img = Image.open(os.path.join(dir, filename))
+        img = Image.open(os.path.join(dir, filename))
             
-            png_filename = os.path.splitext(filename)[0] + '.png'
-            png_path = os.path.join(new_dir, png_filename)
-            img.save(png_path, 'PNG')
+        png_filename = os.path.splitext(filename)[0] + '.png'
+        png_path = os.path.join(new_dir, png_filename)
+        img.save(png_path, 'PNG')
             
-            os.remove(os.path.join(dir, filename))
+        os.remove(os.path.join(dir, filename))
             
-            print(f'{filename} converted to {png_filename} and saved in {new_dir}')
+        print(f'{filename} converted to {png_filename} and saved in {new_dir}')
 
 
         
